@@ -17,27 +17,29 @@ function App() {
       />
     </svg>
   );
-  const pos = (top, right) => (
+  const pos = (leftPos, topPos) => (
     <div
       style={{
         position: "absolute",
-        top: { top } + "px",
-        right: { right } + "px",
+        top: topPos,
+        left: leftPos,
       }}
     >
       {circle}
     </div>
   );
-  /*var frame = {};
-  for (let i = 600; i < 2000; i += 300) {
-    let canvas = pos(i, i % 800);
-    frame = { ...frame, canvas };
-  }*/
+  var frame;
+  for (let i = 0; i < 800; i += 100) {
+    let canvas = <div> {pos(i % 400, i >= 400 ? 100 : 0)} </div>;
+    frame = (
+      <div>
+        <div>{frame}</div> <div> {canvas}</div>
+      </div>
+    );
+  }
   return (
     <>
-      <div>{pos(500, 100)}</div>
-      <div>{pos(800, 100)}</div>
-      <div>{pos(500, 300)}</div>
+      <div>{frame}</div>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
