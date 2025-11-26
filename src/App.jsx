@@ -30,12 +30,14 @@ function App() {
   );
   var frame;
   for (let i = 0; i < 800; i += 100) {
-    let canvas = <div> {pos(i % 400, i >= 400 ? 100 : 0)} </div>;
-    frame = (
-      <div>
-        <div>{frame}</div> <div> {canvas}</div>
-      </div>
-    );
+    for (let j = 0; j < 800; j += 100) {
+      let canvas = <div> {pos(i, j)} </div>;
+      frame = (
+        <div>
+          <div>{frame}</div> <div> {canvas}</div>
+        </div>
+      );
+    }
   }
   return (
     <>
