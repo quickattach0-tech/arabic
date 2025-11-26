@@ -1,13 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
+  const circle = (
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <circle
+        cx="100"
+        cy="100"
+        r="50"
+        fill="blue"
+        stroke="black"
+        stroke-width="3"
+      />
+    </svg>
+  );
+  const pos = (top, right) => (
+    <div
+      style={{
+        position: "absolute",
+        top: { top } + "px",
+        right: { right } + "px",
+      }}
+    >
+      {circle}
+    </div>
+  );
+  /*var frame = {};
+  for (let i = 600; i < 2000; i += 300) {
+    let canvas = pos(i, i % 800);
+    frame = { ...frame, canvas };
+  }*/
   return (
     <>
+      <div>{pos(500, 100)}</div>
+      <div>{pos(800, 100)}</div>
+      <div>{pos(500, 300)}</div>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -29,7 +59,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
