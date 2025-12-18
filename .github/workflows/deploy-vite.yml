@@ -28,8 +28,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml  # Explicit for better control
+          cache: pnpm  # Enables pnpm caching
+
+      - name: Install pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
+        # This ensures pnpm is installed and available in PATH
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
