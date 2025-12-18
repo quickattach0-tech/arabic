@@ -61,3 +61,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Temporary cache bust for fresh build
+        run: echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
