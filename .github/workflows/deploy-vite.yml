@@ -24,15 +24,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10  # Latest stable; change to specific like 9 if needed
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: pnpm  # Enables pnpm caching
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+         # Add a key to bust on source changes if needed
 
-      - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
-        # This ensures pnpm is installed and available in PATH
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
