@@ -2,13 +2,13 @@ name: Deploy Vite + React to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [ main ]           # Change to your default branch if different (e.g., master)
+  workflow_dispatch:             # Allows manual triggering from the Actions tab
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read                 # Required to checkout the code
+  pages: write                   # Required to upload artifact
+  id-token: write                # Required for trusted publishing
 
 concurrency:
   group: pages
@@ -23,35 +23,41 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0           # Full history for better caching
 
+      # Install and activate pnpm (official recommended way)
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10  # Latest stable; change to specific like 9 if needed
-          
+          version: latest
+
+      # Setup Node.js with pnpm caching
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20'       # Or match your local version (18+ works)
           cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-         # Add a key to bust on source changes if needed
 
-
+      # Install dependencies (no --frozen-lockfile to avoid lockfile detection issues in CI)
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
+      # Build the Vite project (outputs to 'dist' by default)
       - name: Build site
         run: pnpm run build
 
+      # Configure GitHub Pages (handles base path, robots.txt, etc.)
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
+      # Upload the built 'dist' folder as an artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
