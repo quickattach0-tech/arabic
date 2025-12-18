@@ -29,8 +29,8 @@ function App() {
     </div>
   );
   var frame;
-  for (let i = 0; i < 800; i += 100) {
-    for (let j = 0; j < 800; j += 100) {
+  for (let i = 0; i < 100*count; i += 100) {
+    for (let j = 0; j < 100*count; j += 100) {
       let canvas = <div> {pos(i, j)} </div>;
       frame = (
         <div>
