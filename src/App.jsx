@@ -37,12 +37,12 @@ function App() {
           Z = Z/2;
       canvas = <div> {pos((i-300)*0.25, (j-300)*0.25, 12.5)} </div>;
       }
-      if (i>=300||j>=300){
+      else if (i>=300||j>=300){
           Z = Z/2;
       canvas = <div> {pos((i-300)*0.5, (j-300)*0.5, 25)} </div>;
-      }
+      }else{
          canvas = <div> {pos(i, j, 50)} </div>;
-      
+      }
 
       
       frame = (
