@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-function App() {
+function Element() {
   const [count, setCount] = useState(0);
   const circle = (rad)=>(
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -32,18 +32,18 @@ function App() {
   let canvas;
   for (let i = 0; i < 100*count; i += 100) {
     for (let j = 0; j < 100*count; j += 100) {
-     if (i>=600||j>=600){
+     if (i >= 600 || j>=600){
           Z = Z/2;
       canvas = <div> {pos((i-300)*0.25, (j-300)*0.25, 12.5)} </div>;
       }
-      else if (i>=300||j>=300){
+      else if (i >= 300 || j>=300){
           Z = Z/2;
       canvas = <div> {pos((i-300)*0.5, (j-300)*0.5, 25)} </div>;
-      }else{
-         canvas = <div> {pos(i, j, 50)} </div>;
       }
+       else{
+      canvas = <div> {pos(i, j, 50)} </div>;
 
-      
+      }
       frame = (
         <div>
           <div>{frame}</div> <div> {canvas}</div>
@@ -78,4 +78,4 @@ function App() {
   );
 }
 
-export default App;
+export default Element;
