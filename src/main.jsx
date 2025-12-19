@@ -6,10 +6,10 @@ import Element from "./Element.jsx"
 createRoot(document.getElementById('root')).render(
   
  <BrowserRouter>
- <App/>
     <Routes>
-      <Route index element={<App />} />
-      <Route path="/el" element={<Element />} />
+      <Route path="arabic/" element={<App />} />
+      <Route path="arabic/el" element={<Element />} />
+      <Route path="*" element={<div>not found</div>}/>
     </Routes>
   </BrowserRouter>
 );
