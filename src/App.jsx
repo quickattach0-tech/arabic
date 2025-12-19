@@ -33,16 +33,18 @@ function App() {
   let canvas;
   for (let i = 0; i < 100*count; i += 100) {
     for (let j = 0; j < 100*count; j += 100) {
-     if (count>=6){
+     if (count<=9){
           Z = Z/2;
       canvas = <div> {pos((i-300)*0.25, (j-300)*0.25, 12.5)} </div>;
       }
-      if (count>=3){
+      if (count<=6){
           Z = Z/2;
       canvas = <div> {pos((i-300)*0.5, (j-300)*0.5, 25)} </div>;
       }
+      if (count<=3){
+         canvas = <div> {pos(i, j, 50)} </div>;
+      }
       
-      canvas = <div> {pos(i, j, 50)} </div>;
 
       
       frame = (
