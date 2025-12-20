@@ -13,4 +13,4 @@ This project could by deployed on github pages using vite+react's deploy github 
 https://quickattach0-tech.github.io/arabic/
 
 # Core
-The core for this app was built by AI. That means the app haven't enouth drivers to build an operation system. 
+The core for this app was built by AI. That means the app haven't enouth drivers to build a modern operation system. 
