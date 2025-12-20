@@ -1,14 +1,20 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router";
+import { HashRouter, Routes, Route, Navigate  } from 'react-router';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
+import Menu from './Menu.jsx';
 import './index.css';
 import Element from "./Element.jsx";
+
 createRoot(document.getElementById('root')).render(
   
- <BrowserRouter>
-    <Routes>
-      
-      <Route path="arabic/core" element={<>
+   <HashRouter>
+    <Menu />
+      <Routes >
+     <Route path="/" element={<Navigate to="/state" />} />
+     <Route path="/state" element={<Element />} />
+      <Route path="pool" element={<App />} />
+      <Route path="*" element={<div>not found</div>}/>
+      <Route path="/core" element={<>
   <meta charSet="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Volcano Eruption Animation</title>
@@ -151,10 +157,7 @@ createRoot(document.getElementById('root')).render(
   </div>
 </>
 } />
-      <Route path="arabic/state" element={<Element />} />
-      <Route path="arabic/pool" element={<App />} />
-      <Route path="*" element={<div>not found</div>}/>
-      <Route path="arabic/" element={<> <div>💱 Menu </div>  <div><Link to="state">🍭 -- State </Link> </div> <div><Link to="pool">🎲 --- Pool </Link> </div> <div><Link to="core">🌋 - Core </Link></div> </>}/>
-    </Routes>
-  </BrowserRouter>
+        {/* Other routes can be defined here */}
+      </Routes>
+      </HashRouter>
 );
