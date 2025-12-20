@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="arabic/core" element={<App />} />
       <Route path="arabic/el" element={<Element />} />
       <Route path="*" element={<div>not found</div>}/>
-      <Route path="arabic/" element={<> 💱Menu <div>🍭--State </div> <div>🎲---Pool </div> <Link to="core">🌋-Core</Link> </>}/>
+      <Route path="arabic/" element={<> 💱 Menu <div>🍭 -- State </div> <div>🎲 --- Pool </div> <Link to="core">🌋 - Core </Link> </>}/>
     </Routes>
   </BrowserRouter>
 );
