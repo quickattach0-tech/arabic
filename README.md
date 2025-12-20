@@ -19,4 +19,4 @@ The core for this app was built by AI. That means the app haven't enouth drivers
 The pool has Tic Tac Toe game with react hooks.
 
 # Chat
-the cat controlled by AI.
+The chat have been controlled by AI storing the appdata.
