@@ -16,4 +16,7 @@ https://quickattach0-tech.github.io/arabic/
 The core for this app was built by AI. That means the app haven't enouth drivers to build a modern operation system. 
 
 # Pool
-The pool has Tic Tac Toe game with react states with integrated AI bot created on video card.
+The pool has Tic Tac Toe game with react hooks.
+
+# Chat
+the cat controlled by AI.
