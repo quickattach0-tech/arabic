@@ -9,5 +9,5 @@ Currently, two official plugins are available:
 
 # Github actions
 
-this project deployed on github pages 
+This project could by deployed on github pages using vite+react's deploy github action. 
 https://quickattach0-tech.github.io/arabic/
